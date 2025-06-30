@@ -1,0 +1,33 @@
+{
+  "name": "dynablaster-pc",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "scripts": {
+    "start": "mkdir -p /tmp/runtime-$USER && chmod 700 /tmp/runtime-$USER && XDG_RUNTIME_DIR=/tmp/runtime-$USER xvfb-run -a electron --no-sandbox .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.yourname.dynablaster",
+    "productName": "Dyna Blaster",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}
